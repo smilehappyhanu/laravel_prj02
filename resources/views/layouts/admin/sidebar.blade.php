@@ -1,8 +1,8 @@
 <div class="section-menu-left">
     <div class="box-logo">
-        <a href="index.html" id="site-logo-inner">
-            <img class="" id="logo_header" alt="" src="images/logo/logo.png"
-                data-light="images/logo/logo.png" data-dark="images/logo/logo.png">
+        <a href="{{route('admin.index')}}" id="site-logo-inner">
+            <img class="" id="logo_header_1" alt=""  src="{{ asset('/admin-assets/images/logo/logo.png') }}"
+                data-light="{{ asset('/admin-assets/images/logo/logo.png') }}" data-dark="{{ asset('/admin-assets/images/logo/logo.png') }}">
         </a>
         <div class="button-show-hide">
             <i class="icon-menu-left"></i>
@@ -13,7 +13,7 @@
             <div class="center-heading">Main Home</div>
             <ul class="menu-list">
                 <li class="menu-item">
-                    <a href="index.html" class="">
+                    <a href="{{route('admin.index')}}" class="">
                         <div class="icon"><i class="icon-grid"></i></div>
                         <div class="text">Dashboard</div>
                     </a>
@@ -52,7 +52,7 @@
                             </a>
                         </li>
                         <li class="sub-menu-item">
-                            <a href="brands.html" class="">
+                            <a href="{{route('brands.index')}}" class="">
                                 <div class="text">Brands</div>
                             </a>
                         </li>
