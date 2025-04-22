@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
@@ -45,6 +46,12 @@ Route::middleware(['auth',AuthAdmin::class])->group(function(){
     Route::get('/admin/brands/{id}/edit', [BrandController::class, 'edit'])->name('brands.edit');
     Route::put('/admin/brands/{id}/update', [BrandController::class, 'update'])->name('brands.update');
     Route::delete('/admin/brands/{id}/delete', [BrandController::class, 'destroy'])->name('brands.delete');
+
+    //Category routes
+    Route::get('/admin/categories/', [CategoryController::class, 'index'])->name('categories.index');
+    Route::get('/admin/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+    Route::get('/admin/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+
 
 });
 
