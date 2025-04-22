@@ -1,6 +1,7 @@
 @extends('layouts.admin.master')
 @section('content')
 <div class="main-content-inner">
+    @include('pages.admin.message')
     <div class="main-content-wrap">
         <div class="flex items-center flex-wrap justify-between gap20 mb-27">
             <h3>Brands</h3>
@@ -32,7 +33,7 @@
                         </div>
                     </form>
                 </div>
-                <a class="tf-button style-1 w208" href="add-brand.html"><i
+                <a class="tf-button style-1 w208" href="{{route('brands.create')}}"><i
                         class="icon-plus"></i>Add new</a>
             </div>
             <div class="wg-table table-all-user">
@@ -51,17 +52,12 @@
                             @if($brands->isNotEmpty())
                                 @foreach($brands as $brand)
                                     <tr>
-                                        <td>{{$brand->id}}</td>
-                                        <td class="pname">
-                                            <div class="image">
-                                                <img src="{{asset('uploads/brands/'.$brand->image)}}" alt="" class="image">
-                                            </div>
-                                            <div class="name">
-                                                <a href="#" class="body-title-2">{{$brand->name}}</a>
-                                            </div>
-                                        </td>
+                                        <td style="width=20px">{{$brand->id}}</td>
+                                        <td>{{$brand->name}}</td>
                                         <td>{{$brand->slug}}</td>
-                                       
+                                        <td>                                         
+                                            <img src="{{asset('uploads/brands/'.$brand->image)}}" alt="">                                       
+                                        </td>                                     
                                         <td>
                                             <div class="list-icon-function">
                                                 <a href="#">

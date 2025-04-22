@@ -24,7 +24,7 @@
     <link rel="apple-touch-icon-precomposed" href="{{ asset('admin-assets/images/favicon.ico')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin-assets/css/sweetalert.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin-assets/css/custom.css')}}">
-    @stack('styles')
+    @yield('customCss')
 </head>
 
 <body class="body">
@@ -155,7 +155,7 @@
             jQuery(window).on("resize", function() {});
         })(jQuery);
     </script>
-    @stack('scripts')
+    @yield('customJs')
 </body>
 
 </html>
