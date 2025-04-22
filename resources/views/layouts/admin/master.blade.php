@@ -56,6 +56,7 @@
     <script src="{{ asset('admin-assets/js/sweetalert.min.js') }}"></script>
     <script src="{{ asset('admin-assets/js/apexcharts/apexcharts.js') }}"></script>
     <script src="{{ asset('admin-assets/js/main.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         (function($) {
 

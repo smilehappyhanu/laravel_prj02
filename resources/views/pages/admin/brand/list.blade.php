@@ -56,16 +56,18 @@
                                         <td>{{$brand->name}}</td>
                                         <td>{{$brand->slug}}</td>
                                         <td>                                         
-                                            <img src="{{asset('uploads/brands/'.$brand->image)}}" alt="">                                       
+                                            <img src="{{asset('uploads/brands/'.$brand->image)}}" alt="{{$brand->name}}">                                       
                                         </td>                                     
                                         <td>
                                             <div class="list-icon-function">
-                                                <a href="#">
+                                                <a href="{{ route('brands.edit',$brand->id) }}">
                                                     <div class="item edit">
                                                         <i class="icon-edit-3"></i>
                                                     </div>
                                                 </a>
-                                                <form action="#" method="POST">
+                                                <form action="{{route('brands.delete',$brand->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('delete')
                                                     <div class="item text-danger delete">
                                                         <i class="icon-trash-2"></i>
                                                     </div>
@@ -90,4 +92,28 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('customJs')
+<script type="text/javascript">
+    $(function(){
+        $('.delete').on('click',function(e){
+            e.preventDefault();
+            var form = $(this).closest('form');
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+                }).then(function(result){
+                    if(result) {
+                        form.submit();
+                    }
+                })
+        })
+    })
+</script>
 @endsection

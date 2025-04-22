@@ -23,6 +23,7 @@ use App\Http\Middleware\AuthAdmin;
 //     return view('welcome');
 // });
 
+// Route for front site
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('front.home');
@@ -32,11 +33,18 @@ Route::middleware(['auth'])->group(function(){
 
 });
 
+// Route for admin site
 Route::middleware(['auth',AuthAdmin::class])->group(function(){
+    // Dashboard routes
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+
+    // Brand routes
     Route::get('/admin/brands/', [BrandController::class, 'index'])->name('brands.index');
     Route::get('/admin/brands/create', [BrandController::class, 'create'])->name('brands.create');
     Route::post('/admin/brands/store', [BrandController::class, 'store'])->name('brands.store');
+    Route::get('/admin/brands/{id}/edit', [BrandController::class, 'edit'])->name('brands.edit');
+    Route::put('/admin/brands/{id}/update', [BrandController::class, 'update'])->name('brands.update');
+    Route::delete('/admin/brands/{id}/delete', [BrandController::class, 'destroy'])->name('brands.delete');
 
 });
 
